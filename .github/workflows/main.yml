@@ -34,13 +34,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          export GIT_DEPLOY_DIR="../notion-snapshot/snapshots/hi-i-m-tobias"
+          export GIT_DEPLOY_DIR="../snapshots/hi-i-m-tobias"
           export GIT_DEPLOY_BRANCH=gh-pages
           export GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
-          pwd
-          ls .
-          ls ../
-          ls ../../
-          ls ../notion-snapshot/snapshots
           bash deploy.sh
         working-directory: repo
