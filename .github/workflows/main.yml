@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 env:
-  NOTION_URL: <your-notion-url>
+  NOTION_URL: https://branched-almandine-09d.notion.site/Hi-I-m-Tobias-acc5478907ef47cf847383e2d1471121?pvs=74
 
 jobs:
   deploy:
