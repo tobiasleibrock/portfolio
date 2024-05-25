@@ -16,7 +16,7 @@ jobs:
       - name: checkout-notion-snapshot
         uses: actions/checkout@v3
         with:
-          repository: sueszli/notionSnapshot
+          repository: tobiasleibrock/notionSnapshot # use fork while waiting for patch pr (sueszli/notionSnapshot)
           path: notion-snapshot
       - name: checkout-this-repo
         uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          export GIT_DEPLOY_DIR="../snapshots/hi-i-m-tobias"
+          export GIT_DEPLOY_DIR="../snapshots/*"
           export GIT_DEPLOY_BRANCH=gh-pages
           export GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
           bash deploy.sh
