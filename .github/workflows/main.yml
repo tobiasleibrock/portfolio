@@ -8,6 +8,7 @@ permissions:
 
 env:
   NOTION_URL: https://branched-almandine-09d.notion.site/Hi-I-m-Tobias-acc5478907ef47cf847383e2d1471121?pvs=74
+  NOTION_TITLE: hi-i-m-tobias
 
 jobs:
   deploy:
@@ -34,7 +35,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          export GIT_DEPLOY_DIR="../snapshots/*"
+          export GIT_DEPLOY_DIR="../snapshots/$NOTION_TITLE"
           export GIT_DEPLOY_BRANCH=gh-pages
           export GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
           bash deploy.sh
