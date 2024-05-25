@@ -37,5 +37,7 @@ jobs:
           GIT_DEPLOY_DIR=../notion-snapshot/snapshots/* \
           GIT_DEPLOY_BRANCH=gh-pages \
           GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
-          bash /deploy.sh
+          pwd
+          ls
+          bash deploy.sh
         working-directory: repo
