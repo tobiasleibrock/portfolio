@@ -24,6 +24,9 @@ jobs:
           path: pages_repo
       - name: install-notion-snapshot-requirements
         run: pip install -r notion-snapshot/requirements.txt
+      - name: patch-notion-snapshot
+        run: |
+          pip install --upgrade webdriver_manager
       - name: run-notion-snapshot
         run: |
           python3 notion-snapshot/notionsnapshot $NOTION_URL
