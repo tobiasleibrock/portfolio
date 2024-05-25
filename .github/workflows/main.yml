@@ -9,6 +9,7 @@ permissions:
 env:
   NOTION_URL: https://branched-almandine-09d.notion.site/Hi-I-m-Tobias-acc5478907ef47cf847383e2d1471121?pvs=74
   NOTION_TITLE: hi-i-m-tobias
+  CUSTOM_DOMAIN: tobiasleibrock.de
 
 jobs:
   deploy:
@@ -38,5 +39,6 @@ jobs:
           export GIT_DEPLOY_DIR="../snapshots/$NOTION_TITLE"
           export GIT_DEPLOY_BRANCH=gh-pages
           export GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
+          echo "$CUSTOM_DOMAIN" > "../snapshots/$NOTION_TITLE/CNAME"
           bash deploy.sh
         working-directory: repo
