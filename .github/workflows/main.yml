@@ -39,6 +39,8 @@ jobs:
           export GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
           pwd
           ls .
+          ls ../
+          ls ../../
           ls ../notion-snapshot/snapshots
           bash deploy.sh
         working-directory: repo
