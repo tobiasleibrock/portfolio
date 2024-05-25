@@ -21,7 +21,7 @@ jobs:
       - name: checkout-this-repo
         uses: actions/checkout@v3
         with:
-          path: pages_repo
+          path: repo
       - name: install-notion-snapshot-requirements
         run: pip install -r notion-snapshot/requirements.txt
       - name: patch-notion-snapshot
@@ -29,12 +29,13 @@ jobs:
           pip install --upgrade webdriver_manager
       - name: run-notion-snapshot
         run: |
-          python3 notion-snapshot/notionsnapshot $NOTION_URL
+          python3 notion-snapshot/notionsnapshot -t 3 $NOTION_URL
       - name: push-github-pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           GIT_DEPLOY_DIR=../notion-snapshot/snapshots/* \
           GIT_DEPLOY_BRANCH=gh-pages \
-          GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git" ./deploy.sh
-        working-directory: pages_repo
+          GIT_DEPLOY_REPO="https://${{ github.token }}@github.com/${{ github.repository }}.git"
+          bash /deploy.sh
+        working-directory: repo
