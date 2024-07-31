@@ -1,0 +1,23 @@
+baseURL: https://tobiasleibrock.de
+languageCode: en-us
+title: Tobias Leibrock
+theme: ["PaperMod"]
+paginate: 10
+
+params:
+  defaultTheme: "auto"
+  showAbout: true
+  ShowBreadCrumbs: true
+  favicon: "/favicon.ico"
+
+menu:
+  main:
+    - name: "Portfolio"
+      url: "/"
+      weight: 1
+    - name: "Projects"
+      url: "/projects/"
+      weight: 2
+    - name: Resume
+      url: "/resume/"
+      weight: 3
